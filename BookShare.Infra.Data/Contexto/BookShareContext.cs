@@ -1,4 +1,5 @@
 ﻿using BookShare.Domain.Entities;
+using BookShare.Infra.Data.EntityConfig;
 using System;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
@@ -32,6 +33,11 @@ namespace BookShare.Infra.Data.Contexto
 
             modelBuilder.Properties<string>()
                 .Configure(p => p.HasMaxLength(100));
+
+            modelBuilder.Configurations.Add(new LivroConfiguration());
+            modelBuilder.Configurations.Add(new AutorConfiguration());
+            modelBuilder.Configurations.Add(new CategoriaConfiguration());
+
         }
 
         public override int SaveChanges()

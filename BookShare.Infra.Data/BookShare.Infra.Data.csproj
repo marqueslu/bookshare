@@ -50,6 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contexto\BookShareContext.cs" />
+    <Compile Include="EntityConfig\AutorConfiguration.cs" />
+    <Compile Include="EntityConfig\CategoriaConfiguration.cs" />
+    <Compile Include="EntityConfig\LivroConfiguration.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -60,7 +63,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="EntityConfig\" />
     <Folder Include="Repositories\" />
   </ItemGroup>
   <ItemGroup>
