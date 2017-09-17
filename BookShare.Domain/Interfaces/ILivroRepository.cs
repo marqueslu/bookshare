@@ -9,5 +9,7 @@ namespace BookShare.Domain.Interfaces
 {
     public interface ILivroRepository : IRepositoryBase<Livro>
     {
+        IEnumerable<Livro> GetByName(string nome);
+        IEnumerable<Autor> LivroPorAutor(Autor autor);
     }
 }

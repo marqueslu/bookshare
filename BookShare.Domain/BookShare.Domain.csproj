@@ -43,10 +43,13 @@
     <Compile Include="Entities\Autor.cs" />
     <Compile Include="Entities\Categoria.cs" />
     <Compile Include="Entities\Livro.cs" />
+    <Compile Include="Interfaces\IAutorRepository.cs" />
+    <Compile Include="Interfaces\ICategoriaRepository.cs" />
+    <Compile Include="Interfaces\ILivroRepository.cs" />
+    <Compile Include="Interfaces\IRepositoryBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Interfaces\" />
     <Folder Include="Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
