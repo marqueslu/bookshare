@@ -23,8 +23,12 @@ namespace BookShare.MVC.Models
 
         [ScaffoldColumn(false)]
         public DateTime DataCadastro { get; set; }
+        [DisplayName("Nome do Autor")]
         public int AutorId { get; set; }
+
+        [DisplayName("Categoria")]
         public int CategoriaId { get; set; }
+
         public virtual AutorViewModel Autor { get; set; }
         public virtual CategoriaViewModel Categoria { get; set; }
     }
