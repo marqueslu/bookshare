@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BookShare.Domain.Interfaces
+namespace BookShare.Domain.Interfaces.Services
 {
-    public interface IRepositoryBase<TEntity> where TEntity : class
+    public interface IServiceBase<TEntity> where TEntity : class
     {
         void Add(TEntity obj);
         TEntity GetById(int id);
-
         IEnumerable<TEntity> GetAll();
         void Update(TEntity obj);
         void Remove(TEntity obj);
