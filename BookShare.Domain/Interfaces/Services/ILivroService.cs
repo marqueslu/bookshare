@@ -10,6 +10,6 @@ namespace BookShare.Domain.Interfaces.Services
     public interface ILivroService : IServiceBase<Livro>
     {
         IEnumerable<Livro> GetByName(string nome);
-        IEnumerable<Autor> LivroPorAutor(Autor autor);
+        IEnumerable<Livro> LivroPorAutor(Autor autor);
     }
 }
