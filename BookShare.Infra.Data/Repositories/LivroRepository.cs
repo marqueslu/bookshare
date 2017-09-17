@@ -14,12 +14,12 @@ namespace BookShare.Infra.Data.Repositories
             return Db.Livros.Where(l => l.Titulo == nome);
         }
 
-        public IEnumerable<Autor> LivroPorAutor(Autor autor)
+        public IEnumerable<Livro> LivroPorAutor(Autor autor)
         {
-            IEnumerable<Autor> livros = (from a in Db.Autores
-                                        .Include(l => l.Livros)
-                                         where a.Nome.Contains(autor.Nome)
-                                         select a).ToList();
+            IEnumerable<Livro> livros = (from l in Db.Livros
+                                        .Include(a => a.Autor)
+                                         where l.Autor.Nome.Contains(autor.Nome)
+                                         select l).ToList();
             return livros;
         }
     }
