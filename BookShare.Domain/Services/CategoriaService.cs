@@ -21,6 +21,6 @@ namespace BookShare.Domain.Services
         {
             return _categoriaRepository.GetByName(nome);
         }
-        //teste
+
     }
 }
