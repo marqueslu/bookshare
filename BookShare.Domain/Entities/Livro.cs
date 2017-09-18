@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace BookShare.Domain.Entities
 {
@@ -18,7 +19,7 @@ namespace BookShare.Domain.Entities
 
         public bool StatusLivro(Livro livro)
         {
-            return livro.Status;
+            return livro.Status == true;
         }
     }
 }

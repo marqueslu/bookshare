@@ -26,5 +26,10 @@ namespace BookShare.Domain.Services
         {
             return _livroRepository.LivroPorAutor(autor);
         }
+
+        public IEnumerable<Livro> ObterLivrosDisponiveis(IEnumerable<Livro> livros)
+        {
+            return livros.Where(l => l.StatusLivro(l));
+        }
     }
 }
