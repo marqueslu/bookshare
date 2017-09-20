@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BookShare.Domain.Interfaces.Services
 {
-    interface ICategoriaService : IServiceBase<Categoria>
+    public interface ICategoriaService : IServiceBase<Categoria>
     {
         IEnumerable<Categoria> GetByName(string nome);
     }

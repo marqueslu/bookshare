@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace BookShare.Domain.Interfaces.Services
 {
-    interface IAutorService : IServiceBase<Autor>
+    public interface IAutorService : IServiceBase<Autor>
     {
         IEnumerable<Autor> GetByName(string nome);
-        
+
     }
 }

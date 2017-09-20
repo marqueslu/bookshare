@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using BookShare.Domain.Entities;
 using BookShare.Domain.Interfaces;
 using System.Linq;
