@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace BookShare.Infra.Data.Repositories
 {
-    class AutorRepository : RepositoryBase<Autor>, IAutorRepository
+   public class AutorRepository : RepositoryBase<Autor>, IAutorRepository
     {
         public IEnumerable<Autor> GetByName(string nome)
         {

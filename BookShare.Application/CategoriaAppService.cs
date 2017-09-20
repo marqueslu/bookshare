@@ -6,15 +6,15 @@ namespace BookShare.Application
 {
     public class CategoriaAppService : AppServiceBase<Categoria>, ICategoriaService
     {
-        private readonly ICategoriaService _categoriaSerivce;
+        private readonly ICategoriaService _categoriaService;
         public CategoriaAppService(ICategoriaService categoriaService) : base(categoriaService)
         {
-            _categoriaSerivce = categoriaService;
+            _categoriaService = categoriaService;
         }
 
         public IEnumerable<Categoria> GetByName(string nome)
         {
-            return _categoriaSerivce.GetByName(nome);
+            return _categoriaService.GetByName(nome);
         }
     }
 }

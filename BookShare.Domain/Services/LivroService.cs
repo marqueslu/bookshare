@@ -9,7 +9,7 @@ using BookShare.Domain.Interfaces.Services;
 
 namespace BookShare.Domain.Services
 {
-    class LivroService : ServiceBase<Livro>, ILivroService
+    public class LivroService : ServiceBase<Livro>, ILivroService
     {
         private readonly ILivroRepository _livroRepository;
         public LivroService(ILivroRepository livroRepository) : base(livroRepository)
