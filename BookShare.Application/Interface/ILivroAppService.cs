@@ -7,6 +7,6 @@ namespace BookShare.Application.Interface
     {
         IEnumerable<Livro> GetByName(string nome);
         IEnumerable<Livro> LivroPorAutor(Autor autor);
-        IEnumerable<Livro> ObterLivrosDisponiveis(IEnumerable<Livro> livros);
+        IEnumerable<Livro> ObterLivrosDisponiveis();
     }
 }
