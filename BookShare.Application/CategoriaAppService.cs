@@ -4,7 +4,7 @@ using BookShare.Domain.Interfaces.Services;
 
 namespace BookShare.Application
 {
-    public class CategoriaAppService : AppServiceBase<Categoria>, ICategoriaService
+    public class CategoriaAppService : AppServiceBase<Categoria>, ICategoriaAppService
     {
         private readonly ICategoriaService _categoriaService;
         public CategoriaAppService(ICategoriaService categoriaService) : base(categoriaService)
