@@ -2,6 +2,7 @@
 using BookShare.Application.Interface;
 using BookShare.Domain.Entities;
 using BookShare.MVC.Models;
+using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
@@ -56,9 +57,9 @@ namespace BookShare.MVC.Controllers
                 }
                 return View(livro);
             }
-            catch
+            catch(Exception ex)
             {
-                return View();
+                return View(ex.Message);
             }
         }
 
@@ -84,9 +85,9 @@ namespace BookShare.MVC.Controllers
                 }
                 return View(livro);
             }
-            catch
+            catch(Exception ex)
             {
-                return View();
+                return View(ex.Message);
             }
         }
 
@@ -112,9 +113,9 @@ namespace BookShare.MVC.Controllers
                 }
                 return View(livro);
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                return View(ex.Message);
             }
         }
     }

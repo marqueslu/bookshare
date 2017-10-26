@@ -13,9 +13,9 @@ namespace BookShare.MVC.AutoMapper
 
         protected override void Configure()
         {
-            Mapper.CreateMap<Livro, LivroViewModel > ();
+            Mapper.CreateMap<Livro, LivroViewModel>();
             Mapper.CreateMap<Autor, AutorViewModel>();
-            Mapper.CreateMap<Categoria, CategoriaViewModel > ();
+            Mapper.CreateMap<Categoria, CategoriaViewModel>();
         }
     }
 }
