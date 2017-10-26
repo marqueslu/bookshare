@@ -21,10 +21,10 @@
             @Html.DisplayNameFor(model => model.Status)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.AutorId)
+            @Html.DisplayName("Categoria")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CategoriaId)
+            @Html.DisplayName("Categoria")
         </th>
         <th></th>
     </tr>
@@ -41,10 +41,10 @@
             @Html.DisplayFor(modelItem => item.Status)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.AutorId)
+            @Html.DisplayFor(modelItem => item.Autor.Nome)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CategoriaId)
+            @Html.DisplayFor(modelItem => item.Categoria.Nome)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.LivroId }) |

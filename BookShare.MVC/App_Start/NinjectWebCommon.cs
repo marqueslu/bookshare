@@ -69,7 +69,7 @@ namespace BookShare.MVC.App_Start
         {
             kernel.Bind(typeof(IAppServiceBase<>)).To(typeof(AppServiceBase<>));
             kernel.Bind<ILivroAppService>().To<LivroAppService>();
-            //kernel.Bind<ICategoriaAppService>().To<CategoriaAppService>();
+            kernel.Bind<ICategoriaAppService>().To<CategoriaAppService>();
             kernel.Bind<IAutorAppService>().To<AutorAppService>();
 
             kernel.Bind(typeof(IServiceBase<>)).To(typeof(ServiceBase<>));
