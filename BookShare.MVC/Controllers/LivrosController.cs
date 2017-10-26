@@ -2,6 +2,7 @@
 using BookShare.Application.Interface;
 using BookShare.Domain.Entities;
 using BookShare.MVC.Models;
+using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
@@ -10,9 +11,13 @@ namespace BookShare.MVC.Controllers
     public class LivrosController : Controller
     {
         private readonly ILivroAppService _livroApp;
-        public LivrosController(ILivroAppService livroApp)
+        private readonly IAutorAppService _autorApp;
+        private readonly ICategoriaAppService _categoriaApp;
+        public LivrosController(ILivroAppService livroApp, IAutorAppService autorApp, ICategoriaAppService categoriaApp)
         {
             _livroApp = livroApp;
+            _autorApp = autorApp;
+            _categoriaApp = categoriaApp;
         }
         // GET: Livros
         public ActionResult Index()
@@ -32,6 +37,8 @@ namespace BookShare.MVC.Controllers
         // GET: Livros/Create
         public ActionResult Create()
         {
+            ViewBag.AutorId = new SelectList(_autorApp.GetAll(), "AutorId", "Nome");
+            ViewBag.CategoriaId = new SelectList(_categoriaApp.GetAll(), "CategoriaId", "Nome");
             return View();
         }
 
@@ -50,9 +57,9 @@ namespace BookShare.MVC.Controllers
                 }
                 return View(livro);
             }
-            catch
+            catch(Exception ex)
             {
-                return View();
+                return View(ex.Message);
             }
         }
 
@@ -78,9 +85,9 @@ namespace BookShare.MVC.Controllers
                 }
                 return View(livro);
             }
-            catch
+            catch(Exception ex)
             {
-                return View();
+                return View(ex.Message);
             }
         }
 
@@ -106,9 +113,9 @@ namespace BookShare.MVC.Controllers
                 }
                 return View(livro);
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                return View(ex.Message);
             }
         }
     }
