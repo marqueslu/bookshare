@@ -21,7 +21,7 @@ namespace BookShare.MVC.Controllers
         public ActionResult Index()
         {
             var categoriaViewModel = Mapper.Map<IEnumerable<Categoria>, IEnumerable<CategoriaViewModel>>(_categoriaApp.GetAll());
-            return View();
+            return View(categoriaViewModel);
         }
 
         // GET: Categorias/Details/5
