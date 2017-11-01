@@ -24,6 +24,10 @@ namespace BookShare.Infra.Data.EntityConfig
             HasRequired(l => l.Autor)
                 .WithMany()
                 .HasForeignKey(l => l.AutorId);
+
+            HasRequired(l => l.Editora)
+                .WithMany()
+                .HasForeignKey(l => l.EditoraId);
         }
     }
 }

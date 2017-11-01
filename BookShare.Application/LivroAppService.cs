@@ -23,9 +23,9 @@ namespace BookShare.Application
             return _livroService.LivroPorAutor(autor);
         }
 
-        public IEnumerable<Livro> ObterLivrosDisponiveis()
-        {
-            return _livroService.ObterLivrosDisponiveis(_livroService.GetAll());
-        }
+        //public IEnumerable<Livro> ObterLivrosDisponiveis()
+        //{
+        //    return _livroService.ObterLivrosDisponiveis(_livroService.GetAll());
+        //}
     }
 }
