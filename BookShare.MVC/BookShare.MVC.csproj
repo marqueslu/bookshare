@@ -352,11 +352,14 @@
     <Content Include="Views\Autor\Details.cshtml" />
     <Content Include="Views\Autor\Edit.cshtml" />
     <Content Include="Views\Autor\Delete.cshtml" />
+    <Content Include="Views\Editoras\Create.cshtml" />
+    <Content Include="Views\Editoras\Delete.cshtml" />
+    <Content Include="Views\Editoras\Index.cshtml" />
+    <Content Include="Views\Editoras\Edit.cshtml" />
+    <Content Include="Views\Editoras\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Editoras\" />
-    <Folder Include="Views\Editora\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
