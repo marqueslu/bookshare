@@ -1,5 +1,11 @@
 ﻿@model IEnumerable<BookShare.MVC.Models.LivroViewModel>
 
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -12,7 +18,10 @@
             @Html.DisplayNameFor(model => model.Sinopse)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SituacaoConserva)
+            @Html.DisplayNameFor(model => model.isbn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AnoLancamento)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.AutorId)
@@ -35,7 +44,10 @@
             @Html.DisplayFor(modelItem => item.Sinopse)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.SituacaoConserva)
+            @Html.DisplayFor(modelItem => item.isbn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AnoLancamento)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Autor.Nome)

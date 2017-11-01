@@ -19,13 +19,17 @@ namespace BookShare.MVC.Models
         [MinLength(50, ErrorMessage = "Mínimo {0} caracteres")]
         public string Sinopse { get; set; }
 
-        [Required(ErrorMessage = "Preencha o campo Situaçao de conserva do livro")]
-        [DisplayName("Situação de conserva do livro")]
+        [Required(ErrorMessage = "Preencha o campo ISBN")]
+        [DisplayName("ISBN")]
         [MaxLength(200, ErrorMessage ="Máximo de {0} caracters")]
-        public String SituacaoConserva { get; set; }
+        public String isbn { get; set; }
 
-        [ScaffoldColumn(false)]
-        public DateTime DataCadastro { get; set; }
+        //[ScaffoldColumn(false)]
+        [Required(ErrorMessage = "Preencha o campo Ano de Lançamento")]
+        [DisplayName("Ano de Lançamento")]
+        [DisplayFormat(DataFormatString = "{dd/mm/yyy}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.Date, ErrorMessage = "Data em formato inválido" )]
+        public DateTime AnoLancamento { get; set; }
         [DisplayName("Nome do Autor")]
         public int AutorId { get; set; }
 
