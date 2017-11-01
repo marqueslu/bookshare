@@ -16,7 +16,7 @@ namespace BookShare.Infra.Data.Contexto
         public DbSet<Livro> Livros { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Autor> Autores { get; set; }
-
+        public DbSet<Editora> Editoras { get; set;  }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -37,7 +37,7 @@ namespace BookShare.Infra.Data.Contexto
             modelBuilder.Configurations.Add(new LivroConfiguration());
             modelBuilder.Configurations.Add(new AutorConfiguration());
             modelBuilder.Configurations.Add(new CategoriaConfiguration());
-
+            modelBuilder.Configurations.Add(new EditoraConfiguration());
         }
 
         public override int SaveChanges()

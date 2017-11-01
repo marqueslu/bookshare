@@ -50,13 +50,16 @@
   <ItemGroup>
     <Compile Include="Entities\Autor.cs" />
     <Compile Include="Entities\Categoria.cs" />
+    <Compile Include="Entities\Editora.cs" />
     <Compile Include="Entities\Livro.cs" />
     <Compile Include="Interfaces\Repositories\IAutorRepository.cs" />
     <Compile Include="Interfaces\Repositories\ICategoriaRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IEditoraRepository.cs" />
     <Compile Include="Interfaces\Repositories\ILivroRepository.cs" />
     <Compile Include="Interfaces\Repositories\IRepositoryBase.cs" />
     <Compile Include="Interfaces\Services\IAutorService.cs" />
     <Compile Include="Interfaces\Services\ICategoriaService.cs" />
+    <Compile Include="Interfaces\Services\IEditoraService.cs" />
     <Compile Include="Interfaces\Services\ILivroService.cs" />
     <Compile Include="Interfaces\Services\IServiceBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -60,11 +60,13 @@
     <Compile Include="Contexto\BookShareContext.cs" />
     <Compile Include="EntityConfig\AutorConfiguration.cs" />
     <Compile Include="EntityConfig\CategoriaConfiguration.cs" />
+    <Compile Include="EntityConfig\EditoraConfiguration.cs" />
     <Compile Include="EntityConfig\LivroConfiguration.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AutorRepository.cs" />
     <Compile Include="Repositories\CategoriaRepository.cs" />
+    <Compile Include="Repositories\EditoraRepository.cs" />
     <Compile Include="Repositories\LivroRepository.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
   </ItemGroup>
