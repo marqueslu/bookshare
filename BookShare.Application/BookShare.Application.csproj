@@ -51,9 +51,11 @@
     <Compile Include="AppServiceBase.cs" />
     <Compile Include="AutorAppService.cs" />
     <Compile Include="CategoriaAppService.cs" />
+    <Compile Include="EditoraAppService.cs" />
     <Compile Include="Interface\IAppServiceBase.cs" />
     <Compile Include="Interface\IAutorAppService.cs" />
     <Compile Include="Interface\ICategoriaAppService.cs" />
+    <Compile Include="Interface\IEditoraAppService.cs" />
     <Compile Include="Interface\ILivroAppService.cs" />
     <Compile Include="LivroAppService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

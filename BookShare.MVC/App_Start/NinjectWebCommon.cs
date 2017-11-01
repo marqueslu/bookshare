@@ -16,6 +16,7 @@ namespace BookShare.MVC.App_Start
     using Domain.Services;
     using Domain.Interfaces;
     using Infra.Data.Repositories;
+    using Domain.Interfaces.Repositories;
 
     public static class NinjectWebCommon 
     {
@@ -71,16 +72,19 @@ namespace BookShare.MVC.App_Start
             kernel.Bind<ILivroAppService>().To<LivroAppService>();
             kernel.Bind<ICategoriaAppService>().To<CategoriaAppService>();
             kernel.Bind<IAutorAppService>().To<AutorAppService>();
+            kernel.Bind<IEditoraAppService>().To<EditoraAppService>();
 
             kernel.Bind(typeof(IServiceBase<>)).To(typeof(ServiceBase<>));
             kernel.Bind<ILivroService>().To<LivroService>();
             kernel.Bind<ICategoriaService>().To<CategoriaService>();
             kernel.Bind<IAutorService>().To<AutorService>();
+            kernel.Bind<IEditoraService>().To<EditoraService>();
 
             kernel.Bind(typeof(IRepositoryBase<>)).To(typeof(RepositoryBase<>));
             kernel.Bind<ILivroRepository>().To<LivroRepository>();
             kernel.Bind<ICategoriaRepository>().To<CategoriaRepository>();
             kernel.Bind<IAutorRepository>().To<AutorRepository>();
+            kernel.Bind<IEditoraRepository>().To<EditoraRepository>();
         }
     }
 }
