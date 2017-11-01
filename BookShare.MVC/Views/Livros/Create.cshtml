@@ -1,11 +1,14 @@
 ﻿@model BookShare.MVC.Models.LivroViewModel
 
-@{
-    ViewBag.Title = "Create";
+@section styles { 
+    <style>
+        textarea{
+            width: 100%;
+            resize: none;
+        }
+
+    </style>
 }
-
-<h2>Create</h2>
-
 
 @using (Html.BeginForm()) 
 {
@@ -26,18 +29,16 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Sinopse, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Sinopse, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.Sinopse,  new { htmlAttributes = new { @class = "form-control " } })
                 @Html.ValidationMessageFor(model => model.Sinopse, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.SituacaoConserva, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Status)
-                    @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
-                </div>
+                @Html.TextAreaFor(model => model.SituacaoConserva, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SituacaoConserva, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -52,8 +53,16 @@
         <div class="form-group">
             @Html.LabelFor(model => model.CategoriaId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("CategoriaId", null, "Selecione...", new { @class = "form-control" } )
+                @Html.DropDownList("CategoriaId", null, "Selecione...", new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.CategoriaId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EditoraId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("EditoraId", null, "Selecione...", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.EditoraId, "", new { @class = "text-danger" })
             </div>
         </div>
 

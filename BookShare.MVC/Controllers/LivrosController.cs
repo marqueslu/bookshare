@@ -13,11 +13,13 @@ namespace BookShare.MVC.Controllers
         private readonly ILivroAppService _livroApp;
         private readonly IAutorAppService _autorApp;
         private readonly ICategoriaAppService _categoriaApp;
-        public LivrosController(ILivroAppService livroApp, IAutorAppService autorApp, ICategoriaAppService categoriaApp)
+        private readonly IEditoraAppService _editoraApp;
+        public LivrosController(ILivroAppService livroApp, IAutorAppService autorApp, ICategoriaAppService categoriaApp, IEditoraAppService editoraApp)
         {
             _livroApp = livroApp;
             _autorApp = autorApp;
             _categoriaApp = categoriaApp;
+            _editoraApp = editoraApp;
         }
         // GET: Livros
         public ActionResult Index()
@@ -39,6 +41,7 @@ namespace BookShare.MVC.Controllers
         {
             ViewBag.AutorId = new SelectList(_autorApp.GetAll(), "AutorId", "Nome");
             ViewBag.CategoriaId = new SelectList(_categoriaApp.GetAll(), "CategoriaId", "Nome");
+            ViewBag.EditoraId = new SelectList(_editoraApp.GetAll(), "EditoriaId", "Nome");
             return View();
         }
 

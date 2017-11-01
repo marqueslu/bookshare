@@ -1,11 +1,5 @@
 ﻿@model BookShare.MVC.Models.LivroViewModel
 
-@{
-    ViewBag.Title = "Details";
-}
-
-<h2>Details</h2>
-
 <div>
     <h4>LivroViewModel</h4>
     <hr />
@@ -27,11 +21,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Status)
+            @Html.DisplayNameFor(model => model.SituacaoConserva)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Status)
+            @Html.DisplayFor(model => model.SituacaoConserva)
         </dd>
 
         <dt>
@@ -39,7 +33,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.AutorId)
+            @Html.DisplayFor(model => model.Autor.Nome)
         </dd>
 
         <dt>
@@ -47,7 +41,15 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CategoriaId)
+            @Html.DisplayFor(model => model.Categoria.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EditoraId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Editora.Nome)
         </dd>
 
     </dl>

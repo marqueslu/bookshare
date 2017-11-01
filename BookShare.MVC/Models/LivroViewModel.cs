@@ -18,6 +18,8 @@ namespace BookShare.MVC.Models
         [MaxLength(500, ErrorMessage = "Máximo {0} caracteres")]
         [MinLength(50, ErrorMessage = "Mínimo {0} caracteres")]
         public string Sinopse { get; set; }
+
+        [Required(ErrorMessage = "Preencha o campo Situaçao de conserva do livro")]
         [DisplayName("Situação de conserva do livro")]
         [MaxLength(200, ErrorMessage ="Máximo de {0} caracters")]
         public String SituacaoConserva { get; set; }
@@ -30,7 +32,11 @@ namespace BookShare.MVC.Models
         [DisplayName("Categoria")]
         public int CategoriaId { get; set; }
 
+        [DisplayName("Editora")]
+        public int EditoraId { get; set; }
         public virtual AutorViewModel Autor { get; set; }
         public virtual CategoriaViewModel Categoria { get; set; }
+        public virtual EditoraViewModel Editora { get; set; }
+
     }
 }

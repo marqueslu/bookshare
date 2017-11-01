@@ -252,6 +252,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AutorViewModel.cs" />
     <Compile Include="Models\CategoriaViewModel.cs" />
+    <Compile Include="Models\EditoraViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LivroViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -335,15 +336,15 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Livros\Index.cshtml" />
-    <Content Include="Views\Livros\Create.cshtml" />
-    <Content Include="Views\Livros\Delete.cshtml" />
-    <Content Include="Views\Livros\Details.cshtml" />
-    <Content Include="Views\Livros\Edit.cshtml" />
     <Content Include="Views\Categorias\Create.cshtml" />
     <Content Include="Views\Categorias\Delete.cshtml" />
     <Content Include="Views\Categorias\Details.cshtml" />
     <Content Include="Views\Categorias\Edit.cshtml" />
     <Content Include="Views\Categorias\Index.cshtml" />
+    <Content Include="Views\Livros\Create.cshtml" />
+    <Content Include="Views\Livros\Details.cshtml" />
+    <Content Include="Views\Livros\Edit.cshtml" />
+    <Content Include="Views\Livros\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
