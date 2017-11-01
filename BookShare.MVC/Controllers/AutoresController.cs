@@ -10,12 +10,12 @@ using System.Web.Mvc;
 
 namespace BookShare.MVC.Controllers
 {
-    public class AutorController : Controller
+    public class AutoresController : Controller
     {
 
         private readonly IAutorAppService _autorApp;
 
-        public AutorController(IAutorAppService autorApp) 
+        public AutoresController(IAutorAppService autorApp) 
         {
             _autorApp = autorApp;
         }
