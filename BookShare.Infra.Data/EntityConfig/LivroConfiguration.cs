@@ -17,6 +17,10 @@ namespace BookShare.Infra.Data.EntityConfig
             Property(l => l.Sinopse)
                 .HasMaxLength(500);
 
+            Property(l => l.SituacaoConserva)
+                .IsRequired()
+                .HasMaxLength(200);
+
             HasRequired(l => l.Categoria)
                 .WithMany()
                 .HasForeignKey(l => l.CategoriaId);

@@ -15,11 +15,12 @@ namespace BookShare.MVC.Models
         [DisplayName("Título")]
         public string Titulo { get; set; }
 
-        [MaxLength(500, ErrorMessage = "Máximo{0} caracteres")]
-        [MinLength(50, ErrorMessage = "Mínimo{0} caracteres")]
+        [MaxLength(500, ErrorMessage = "Máximo {0} caracteres")]
+        [MinLength(50, ErrorMessage = "Mínimo {0} caracteres")]
         public string Sinopse { get; set; }
-        [DisplayName("Disponível?")]
-        public bool Status { get; set; }
+        [DisplayName("Situação de conserva do livro")]
+        [MaxLength(200, ErrorMessage ="Máximo de {0} caracters")]
+        public String SituacaoConserva { get; set; }
 
         [ScaffoldColumn(false)]
         public DateTime DataCadastro { get; set; }
