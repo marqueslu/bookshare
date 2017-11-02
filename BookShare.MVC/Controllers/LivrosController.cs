@@ -32,6 +32,8 @@ namespace BookShare.MVC.Controllers
         public ActionResult Details(int id)
         {
             var livro = _livroApp.GetById(id);
+            //DateTime data = Convert.ToDateTime(livro.AnoLancamento, System.Globalization.CultureInfo.InvariantCulture).ToString("dd/MM/yyyy");
+            //livro.AnoLancamento = data;
             var livroViewModel = Mapper.Map<Livro, LivroViewModel>(livro);
             return View(livroViewModel);
         }
@@ -41,7 +43,7 @@ namespace BookShare.MVC.Controllers
         {
             ViewBag.AutorId = new SelectList(_autorApp.GetAll(), "AutorId", "Nome");
             ViewBag.CategoriaId = new SelectList(_categoriaApp.GetAll(), "CategoriaId", "Nome");
-            ViewBag.EditoraId = new SelectList(_editoraApp.GetAll(), "EditoriaId", "Nome");
+            ViewBag.EditoraId = new SelectList(_editoraApp.GetAll(), "EditoraId", "Nome");
             return View();
         }
 
@@ -60,7 +62,7 @@ namespace BookShare.MVC.Controllers
                 }
                 return View(livro);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return View(ex.Message);
             }
@@ -88,7 +90,7 @@ namespace BookShare.MVC.Controllers
                 }
                 return View(livro);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return View(ex.Message);
             }
@@ -103,23 +105,13 @@ namespace BookShare.MVC.Controllers
         }
 
         // POST: Livros/Delete/5
-        [HttpPost]
-        public ActionResult Delete(LivroViewModel livro)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    var livroDomain = Mapper.Map<LivroViewModel, Livro>(livro);
-                    _livroApp.Remove(livroDomain);
-                    return RedirectToAction("Index");
-                }
-                return View(livro);
-            }
-            catch (Exception ex)
-            {
-                return View(ex.Message);
-            }
+            var livro = _livroApp.GetById(id);
+            _livroApp.Remove(livro);
+            return RedirectToAction("Index");
         }
     }
 }

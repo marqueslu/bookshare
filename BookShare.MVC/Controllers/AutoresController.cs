@@ -15,7 +15,7 @@ namespace BookShare.MVC.Controllers
 
         private readonly IAutorAppService _autorApp;
 
-        public AutoresController(IAutorAppService autorApp) 
+        public AutoresController(IAutorAppService autorApp)
         {
             _autorApp = autorApp;
         }
@@ -23,7 +23,7 @@ namespace BookShare.MVC.Controllers
         // GET: Autor
         public ActionResult Index()
         {
-            var autorViewModel = Mapper.Map<IEnumerable<Autor>, IEnumerable<AutorViewModel>>(_autorApp.GetAll()); 
+            var autorViewModel = Mapper.Map<IEnumerable<Autor>, IEnumerable<AutorViewModel>>(_autorApp.GetAll());
             return View(autorViewModel);
         }
 
@@ -56,7 +56,7 @@ namespace BookShare.MVC.Controllers
 
                 return View(autor);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return View(e.Message);
             }
@@ -66,7 +66,7 @@ namespace BookShare.MVC.Controllers
         public ActionResult Edit(int id)
         {
             var autor = _autorApp.GetById(id);
-            var autorViewModel = Mapper.Map<Autor, AutorViewModel> (autor);
+            var autorViewModel = Mapper.Map<Autor, AutorViewModel>(autor);
             return View(autorViewModel);
         }
 
@@ -84,9 +84,9 @@ namespace BookShare.MVC.Controllers
                 }
 
                 return View(autor);
-                
+
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return View(e.Message);
             }
@@ -101,25 +101,13 @@ namespace BookShare.MVC.Controllers
         }
 
         // POST: Autor/Delete/5
-        [HttpPost]
-        public ActionResult Delete(AutorViewModel autor)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    var autorDomain = Mapper.Map<AutorViewModel, Autor>(autor);
-                    _autorApp.Remove(autorDomain);
-                    return RedirectToAction("Index");
-                }
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch(Exception e)
-            {
-                return View(e.Message);
-            }
+            var autor = _autorApp.GetById(id);
+            _autorApp.Remove(autor);
+            return RedirectToAction("Index");
         }
     }
 }

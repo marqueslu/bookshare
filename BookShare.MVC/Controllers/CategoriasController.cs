@@ -54,7 +54,7 @@ namespace BookShare.MVC.Controllers
                 }
                 return View();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return View(ex.Message);
             }
@@ -97,23 +97,14 @@ namespace BookShare.MVC.Controllers
         }
 
         // POST: Categorias/Delete/5
-        [HttpPost]
-        public ActionResult Delete(CategoriaViewModel categoria)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    var categoriaDomain = Mapper.Map<CategoriaViewModel, Categoria>(categoria);
-                    _categoriaApp.Remove(categoriaDomain);
-                    return RedirectToAction("Index");
-                }
-                return View(categoria);
-            }
-            catch (Exception ex)
-            {
-                return View(ex.Message);
-            }
+            var categoria = _categoriaApp.GetById(id);
+            _categoriaApp.Remove(categoria);
+            return RedirectToAction("Index");
+
         }
     }
 }

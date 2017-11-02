@@ -83,7 +83,7 @@ namespace BookShare.MVC.Controllers
                 return View(editora);
 
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return View(e.Message);
             }
@@ -98,24 +98,13 @@ namespace BookShare.MVC.Controllers
         }
 
         // POST: Editoras/Delete/5
-        [HttpPost]
-        public ActionResult Delete(EditoraViewModel editora)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    var editoraDomain = Mapper.Map<EditoraViewModel, Editora>(editora);
-                    _editoraApp.Remove(editoraDomain);
-                    return RedirectToAction("Index");
-                }
-
-                return View(editora);
-            }
-            catch(Exception e)
-            {
-                return View(e.Message);
-            }
+            var editora = _editoraApp.GetById(id);
+            _editoraApp.Remove(editora);
+            return RedirectToAction("Index");
         }
     }
 }
