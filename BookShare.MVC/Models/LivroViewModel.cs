@@ -27,7 +27,7 @@ namespace BookShare.MVC.Models
         //[ScaffoldColumn(false)]
         [Required(ErrorMessage = "Preencha o campo Ano de Lançamento")]
         [DisplayName("Ano de Lançamento")]
-        [DisplayFormat(DataFormatString = "{dd/mm/yyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         [DataType(DataType.Date, ErrorMessage = "Data em formato inválido" )]
         public DateTime AnoLancamento { get; set; }
         [DisplayName("Nome do Autor")]

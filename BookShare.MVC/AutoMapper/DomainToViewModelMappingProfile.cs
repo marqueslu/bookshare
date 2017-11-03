@@ -16,6 +16,8 @@ namespace BookShare.MVC.AutoMapper
             Mapper.CreateMap<Livro, LivroViewModel>();
             Mapper.CreateMap<Autor, AutorViewModel>();
             Mapper.CreateMap<Categoria, CategoriaViewModel>();
+            Mapper.CreateMap<Editora, EditoraViewModel>();
+
         }
     }
 }

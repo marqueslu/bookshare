@@ -1,5 +1,14 @@
 ﻿@model BookShare.MVC.Models.LivroViewModel
 
+@section styles{
+    <style>
+        textarea{
+            width: 100%;
+            resize: none;
+        }
+    </style>
+
+    }
 @{
     ViewBag.Title = "Create";
 }
@@ -26,7 +35,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Sinopse, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Sinopse, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.Sinopse, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Sinopse, "", new { @class = "text-danger" })
             </div>
         </div>
