@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace BookShare.MVC.Controllers
 {
+    [Authorize]
     public class LivrosController : Controller
     {
         private readonly ILivroAppService _livroApp;

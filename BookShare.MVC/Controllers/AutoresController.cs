@@ -10,6 +10,7 @@ using System.Web.Mvc;
 
 namespace BookShare.MVC.Controllers
 {
+    [Authorize]
     public class AutoresController : Controller
     {
 

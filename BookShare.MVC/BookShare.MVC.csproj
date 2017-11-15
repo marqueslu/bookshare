@@ -361,6 +361,8 @@
     <Content Include="Views\Editoras\Index.cshtml" />
     <Content Include="Views\Editoras\Edit.cshtml" />
     <Content Include="Views\Editoras\Details.cshtml" />
+    <Content Include="Views\Shared\_LayoutHome.cshtml" />
+    <Content Include="Views\Shared\LoginPartialHome.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
