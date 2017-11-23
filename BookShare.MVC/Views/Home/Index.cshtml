@@ -3,7 +3,24 @@
 
     Layout = "~/Views/Shared/_LayoutHome.cshtml";
 }
-
-<div class="container-fluid">
-    <h1>SUA PRÓXIMA LEITURA, AGORA.</h1>
-</div>
+@section styles{
+    <style>
+       body {
+            background-image: url("../../Content/image/image-home.jpeg");
+            border-image-repeat: no-repeat;
+            color: #fff;
+        }
+       .content-home{
+           margin-top: 18em;
+       }
+       h1{
+           font-size: 60px;
+           font-weight: bold;
+       }
+    </style>
+}
+    <div class="container-fluid">
+        <div class="content-home">
+            <h1>SUA PRÓXIMA LEITURA,<br /> AGORA.</h1>
+        </div>
+    </div>

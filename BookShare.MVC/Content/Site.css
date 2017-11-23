@@ -3,7 +3,14 @@
     padding-bottom: 20px;
     background-color: #FFCA00;
 }
+.btn-home{
+    margin-top: 20px;
+    text-decoration: none;
+}
 
+.btn-home, .navbar-right {
+    list-style: none;
+}
 /* Set padding to keep content from hitting the edges */
 /*.body-content {
     padding-left: 15px;
