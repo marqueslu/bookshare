@@ -269,6 +269,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\image\image-home.jpeg" />
     <Content Include="Content\image\image-login.jpg" />
+    <Content Include="Content\image\logo.png" />
     <Content Include="Scripts\cldr.js" />
     <Content Include="Scripts\cldr\event.js" />
     <Content Include="Scripts\cldr\supplemental.js" />
