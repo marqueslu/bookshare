@@ -252,6 +252,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711200149223_InitialCreate.cs" />
+    <Compile Include="Migrations\201711200149223_InitialCreate.Designer.cs">
+      <DependentUpon>201711200149223_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AutorViewModel.cs" />
     <Compile Include="Models\CategoriaViewModel.cs" />
@@ -392,6 +397,11 @@
       <Project>{186E752E-273A-4E19-910C-EE07C8F6B7DF}</Project>
       <Name>BookShare.Infra.Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201711200149223_InitialCreate.resx">
+      <DependentUpon>201711200149223_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

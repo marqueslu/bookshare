@@ -64,11 +64,20 @@ namespace BookShare.MVC.Models
 
     public class RegisterViewModel
     {
+
+        [Required]
+        [Display(Name = "Nome completo")]
+        public string Nome { get; set; }
+        [Required]
+        [DataType(DataType.PhoneNumber, ErrorMessage = "Forneça o número do telefone no formato(00) 0000 - 0000")]
+        [Display(Name = "Telefone")]
+        public string Telefone { get; set; }
         [Required]
         [EmailAddress]
         [Display(Name = "E-mail")]
         public string Email { get; set; }
-
+        [Display(Name = "Endereço")]
+        public string Endereco { get; set; }
         [Required]
         [StringLength(100, ErrorMessage = "A {0} deve ter ao menos {2} caracteres.", MinimumLength = 6)]
         [DataType(DataType.Password)]
