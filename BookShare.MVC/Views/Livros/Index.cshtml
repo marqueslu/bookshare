@@ -1,72 +1,55 @@
 ﻿@model IEnumerable<BookShare.MVC.Models.LivroViewModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Adicionados recentemente";
 }
+@section styles{
+    <style>
+        .img-card {
+            width: 100%;
+        }
 
-<h2>Index</h2>
+        .panel, .img-card {
+            /*margin-left: -15px;*/
+            padding: 0;
+            border-radius: 5px;
+        }
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Titulo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Sinopse)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Isbn)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AnoLancamento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AutorId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CategoriaId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EditoraId)
-        </th>
-        <th></th>
-    </tr>
+        .panel {
+            margin-left: 15px;
+        }
+        /*.field{
+            padding: 5px;
+        }*/
+        @@media (Min-width: 900px) {
+            .col-md-3 {
+                width: 23.5%;
+            }
+        }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Titulo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Sinopse)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Isbn)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AnoLancamento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Autor.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Categoria.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Editora.Nome)
-        </td>
-        <td>
-            <img src="@item.Foto" border="0" width="100" />
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.LivroId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.LivroId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.LivroId })
-        </td>
-    </tr>
+
+        h4 {
+            font-weight: bold;
+        }
+    </style>
 }
+<div class="container">
+    <h2>@ViewBag.Title</h2>
 
-</table>
+    <p>
+        <a href='@Url.Action("Create", "Livros")' class="btn btn-default">Novo Livro</a>
+    </p>
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="panel panel-default col-md-3">
+                <img src="@item.Foto" border="0" class="img-card" />
+                <div class="panel-body">
+                    <h4>@Html.DisplayFor(modelItem => item.Titulo)</h4>
+                    <a href="/Livros/Details/@item.LivroId" class="btn btn-warning">Confira</a>
+
+                </div>
+            </div>
+        }
+    </div>
+</div>
