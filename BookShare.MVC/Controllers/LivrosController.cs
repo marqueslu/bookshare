@@ -4,6 +4,8 @@ using BookShare.Domain.Entities;
 using BookShare.MVC.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 
 namespace BookShare.MVC.Controllers
@@ -51,14 +53,24 @@ namespace BookShare.MVC.Controllers
         // POST: Livros/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(LivroViewModel livro)
+        public ActionResult Create(LivroViewModel livro, HttpPostedFileBase file)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
                     var livroDomain = Mapper.Map<LivroViewModel, Livro>(livro);
-                    _livroApp.Add(livroDomain);
+                    if(file != null)
+                    {
+                        String[] strName = file.FileName.Split('.');
+                        String strExt = strName[strName.Count() - 1];
+                        string pathSave = String.Format("{0}{1}.{2}", Server.MapPath("../Content/Imagens/"), livro.LivroId, strExt);
+                        String pathBase = String.Format("../Content/Imagens/{0}.{1}", livro.LivroId, strExt);
+                        file.SaveAs(pathSave);
+                        livroDomain.Foto = pathBase;
+                        _livroApp.Add(livroDomain);
+                    }
+                    
                     return RedirectToAction("Index");
                 }
                 return View(livro);
@@ -79,13 +91,31 @@ namespace BookShare.MVC.Controllers
 
         // POST: Livros/Edit/5
         [HttpPost]
-        public ActionResult Edit(LivroViewModel livro)
+        public ActionResult Edit(LivroViewModel livro, HttpPostedFile file)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
                     var livroDomain = Mapper.Map<LivroViewModel, Livro>(livro);
+                    if (file != null)
+                    {
+                        if (livro.Foto != null)
+                        {
+                            if (System.IO.File.Exists(Server.MapPath("../../Content/Imagens/" + livro.Foto)))
+                            {
+                                System.IO.File.Delete(Server.MapPath("../../Content/Imagens/" + livro.Foto));
+                            }
+                        }
+                        String[] strName = file.FileName.Split('.');
+                        String strExt = strName[strName.Count() - 1];
+                        string pathSave = String.Format("{0}{1}.{2}", Server.MapPath("../../Content/Imagens/"), livro.LivroId, strExt);
+                        String pathBase = String.Format("../../Content/Imagens/{0}.{1}", livro.LivroId, strExt);
+                        file.SaveAs(pathSave);
+                        livro.Foto = pathBase;
+                        
+
+                    }
                     _livroApp.Update(livroDomain);
                     return RedirectToAction("Index");
                 }

@@ -19,10 +19,10 @@ namespace BookShare.MVC.Models
         [MinLength(50, ErrorMessage = "Mínimo {0} caracteres")]
         public string Sinopse { get; set; }
 
-        [Required(ErrorMessage = "Preencha o campo ISBN")]
-        [DisplayName("ISBN")]
+        [Required(ErrorMessage = "Preencha o campo Isbn")]
+        [DisplayName("Isbn")]
         [MaxLength(200, ErrorMessage ="Máximo de {0} caracters")]
-        public String isbn { get; set; }
+        public String Isbn { get; set; }
 
         //[ScaffoldColumn(false)]
         [Required(ErrorMessage = "Preencha o campo Ano de Lançamento")]
@@ -38,6 +38,7 @@ namespace BookShare.MVC.Models
 
         [DisplayName("Editora")]
         public int EditoraId { get; set; }
+        public string Foto { get; set; }
         public virtual AutorViewModel Autor { get; set; }
         public virtual CategoriaViewModel Categoria { get; set; }
         public virtual EditoraViewModel Editora { get; set; }

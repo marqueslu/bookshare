@@ -17,7 +17,7 @@ namespace BookShare.Infra.Data.EntityConfig
             Property(l => l.Sinopse)
                 .HasMaxLength(500);
 
-            Property(l => l.isbn)
+            Property(l => l.Isbn)
                 .IsRequired()
                 .HasMaxLength(20);
 
