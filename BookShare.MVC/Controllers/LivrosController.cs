@@ -84,6 +84,9 @@ namespace BookShare.MVC.Controllers
         // GET: Livros/Edit/5
         public ActionResult Edit(int id)
         {
+            ViewBag.AutorId = new SelectList(_autorApp.GetAll(), "AutorId", "Nome");
+            ViewBag.CategoriaId = new SelectList(_categoriaApp.GetAll(), "CategoriaId", "Nome");
+            ViewBag.EditoraId = new SelectList(_editoraApp.GetAll(), "EditoraId", "Nome");
             var livro = _livroApp.GetById(id);
             var livroViewModel = Mapper.Map<Livro, LivroViewModel>(livro);
             return View(livroViewModel);

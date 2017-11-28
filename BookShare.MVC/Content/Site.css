@@ -18,6 +18,9 @@
     /*margin: auto;*/
     background-color: white;
 }
+.container-fluid {
+    margin-top: 30px;
+}
 /* Set padding to keep content from hitting the edges */
 /*.body-content {
     padding-left: 15px;
