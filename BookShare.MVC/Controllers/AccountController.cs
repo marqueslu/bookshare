@@ -153,7 +153,7 @@ namespace BookShare.MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Nome, Email = model.Email, Endereco = model.Endereco, Telefone = model.Telefone };
+                var user = new ApplicationUser { UserName = model.Nome, Nome = model.Nome, Email = model.Email, Endereco = model.Endereco, Telefone = model.Telefone };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
