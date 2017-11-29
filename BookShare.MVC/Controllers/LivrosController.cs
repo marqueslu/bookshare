@@ -107,9 +107,9 @@ namespace BookShare.MVC.Controllers
                     {
                         if (livro.Foto != null)
                         {
-                            if (System.IO.File.Exists(Server.MapPath("../Content/Imagens/" + livro.Foto)))
+                            if (System.IO.File.Exists(Server.MapPath(livro.Foto)))
                             {
-                                System.IO.File.Delete(Server.MapPath("../Content/Imagens/" + livro.Foto));
+                                System.IO.File.Delete(Server.MapPath(livro.Foto));
                             }
                         }
 

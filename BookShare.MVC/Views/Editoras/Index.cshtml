@@ -4,30 +4,37 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div class="container-fluid container-details">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Editoras</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nome)
-        </th>
-        <th></th>
-    </tr>
+            <p>
+                <a href='@Url.Action("Create", "Editoras")' class="btn btn-default">Nova Editora</a>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EditoraId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EditoraId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EditoraId })
-        </td>
-    </tr>
-}
+            </p>
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nome)
+                    </th>
+                    <th></th>
+                </tr>
 
-</table>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nome)
+                        </td>
+                        <td>
+                            <a href="/Editoras/Edit/@item.EditoraId" class="btn btn-primary">Editar</a>
+                            <a href="/Editoras/Delete/@item.EditoraId" class="btn btn-danger">Excluir</a>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>
