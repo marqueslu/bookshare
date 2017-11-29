@@ -119,10 +119,11 @@ namespace BookShare.MVC.Controllers
                         String pathBase = String.Format("../Content/Imagens/{0}.{1}", livro.LivroId, strExt);
                         file.SaveAs(pathSave);
                         livroDomain.Foto = pathBase;
+                        _livroApp.Update(livroDomain);
+
 
                     }
 
-                    _livroApp.Update(livroDomain);
                     return RedirectToAction("Index");
 
 

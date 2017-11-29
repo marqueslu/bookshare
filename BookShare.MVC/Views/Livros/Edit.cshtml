@@ -11,10 +11,6 @@
 
 }
 
-@{
-    ViewBag.Title = "Criar";
-}
-
 @using (Html.BeginForm("Edit", "Livros", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
@@ -23,7 +19,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 container-login">
                 <div class="form-horizontal">
-                    <h2>Novo livro</h2>
+                    <h2>Alterar Livro</h2>
                     <hr />
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     <div class="form-group">
