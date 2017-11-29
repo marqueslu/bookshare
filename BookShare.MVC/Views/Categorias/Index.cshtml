@@ -3,31 +3,39 @@
 @{
     ViewBag.Title = "Index";
 }
+<div class="container-fluid container-details">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>
+                Categorias
+            </h2>
+            <p>
+                <a href='@Url.Action("Create", "Categorias")' class="btn btn-default">Nova Categoria</a>
+            </p>
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nome)
+                    </th>
+                    <th></th>
+                </tr>
 
-<h2>Index</h2>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <a href="/Categorias/Details/@item.CategoriaId">@Html.DisplayFor(modelItem => item.Nome)</a>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nome)
-        </th>
-        <th></th>
-    </tr>
+                        </td>
+                        <td>
+                            <a href="/Categorias/Edit/@item.CategoriaId" class="btn btn-primary">Editar</a>
+                            <a href="/Categorias/Delete/@item.CategoriaId" class="btn btn-danger">Excluir</a>
+                        </td>
+                    </tr>
+                }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CategoriaId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CategoriaId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CategoriaId })
-        </td>
-    </tr>
-}
+            </table>
+        </div>
+    </div>
+</div>
 
-</table>

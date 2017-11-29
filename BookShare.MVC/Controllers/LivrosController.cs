@@ -35,8 +35,6 @@ namespace BookShare.MVC.Controllers
         public ActionResult Details(int id)
         {
             var livro = _livroApp.GetById(id);
-            //DateTime data = Convert.ToDateTime(livro.AnoLancamento, System.Globalization.CultureInfo.InvariantCulture).ToString("dd/MM/yyyy");
-            //livro.AnoLancamento = data;
             var livroViewModel = Mapper.Map<Livro, LivroViewModel>(livro);
             return View(livroViewModel);
         }
@@ -60,7 +58,7 @@ namespace BookShare.MVC.Controllers
                 if (ModelState.IsValid)
                 {
                     var livroDomain = Mapper.Map<LivroViewModel, Livro>(livro);
-                    if(file != null)
+                    if (file != null)
                     {
                         String[] strName = file.FileName.Split('.');
                         String strExt = strName[strName.Count() - 1];
@@ -70,7 +68,7 @@ namespace BookShare.MVC.Controllers
                         livroDomain.Foto = pathBase;
                         _livroApp.Add(livroDomain);
                     }
-                    
+
                     return RedirectToAction("Index");
                 }
                 return View(livro);
@@ -84,16 +82,20 @@ namespace BookShare.MVC.Controllers
         // GET: Livros/Edit/5
         public ActionResult Edit(int id)
         {
-            ViewBag.AutorId = new SelectList(_autorApp.GetAll(), "AutorId", "Nome");
-            ViewBag.CategoriaId = new SelectList(_categoriaApp.GetAll(), "CategoriaId", "Nome");
-            ViewBag.EditoraId = new SelectList(_editoraApp.GetAll(), "EditoraId", "Nome");
+
             var livro = _livroApp.GetById(id);
             var livroViewModel = Mapper.Map<Livro, LivroViewModel>(livro);
+
+            ViewBag.AutorId = new SelectList(_autorApp.GetAll(), "AutorId", "Nome", livroViewModel.AutorId);
+            ViewBag.CategoriaId = new SelectList(_categoriaApp.GetAll(), "CategoriaId", "Nome", livroViewModel.CategoriaId);
+            ViewBag.EditoraId = new SelectList(_editoraApp.GetAll(), "EditoraId", "Nome", livroViewModel.EditoraId);
+
             return View(livroViewModel);
         }
 
         // POST: Livros/Edit/5
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(LivroViewModel livro, HttpPostedFile file)
         {
             try
@@ -105,23 +107,29 @@ namespace BookShare.MVC.Controllers
                     {
                         if (livro.Foto != null)
                         {
-                            if (System.IO.File.Exists(Server.MapPath("../../Content/Imagens/" + livro.Foto)))
+                            if (System.IO.File.Exists(Server.MapPath("../Content/Imagens/" + livro.Foto)))
                             {
-                                System.IO.File.Delete(Server.MapPath("../../Content/Imagens/" + livro.Foto));
+                                System.IO.File.Delete(Server.MapPath("../Content/Imagens/" + livro.Foto));
                             }
                         }
+
                         String[] strName = file.FileName.Split('.');
                         String strExt = strName[strName.Count() - 1];
-                        string pathSave = String.Format("{0}{1}.{2}", Server.MapPath("../../Content/Imagens/"), livro.LivroId, strExt);
-                        String pathBase = String.Format("../../Content/Imagens/{0}.{1}", livro.LivroId, strExt);
+                        string pathSave = String.Format("{0}{1}.{2}", Server.MapPath("../Content/Imagens/"), livro.LivroId, strExt);
+                        String pathBase = String.Format("../Content/Imagens/{0}.{1}", livro.LivroId, strExt);
                         file.SaveAs(pathSave);
-                        livro.Foto = pathBase;
-                        
+                        livroDomain.Foto = pathBase;
 
                     }
+
                     _livroApp.Update(livroDomain);
                     return RedirectToAction("Index");
+
+
                 }
+                ViewBag.AutorId = new SelectList(_autorApp.GetAll(), "AutorId", "Nome", livro.AutorId);
+                ViewBag.CategoriaId = new SelectList(_categoriaApp.GetAll(), "CategoriaId", "Nome", livro.CategoriaId);
+                ViewBag.EditoraId = new SelectList(_editoraApp.GetAll(), "EditoraId", "Nome", livro.EditoraId);
                 return View(livro);
             }
             catch (Exception ex)

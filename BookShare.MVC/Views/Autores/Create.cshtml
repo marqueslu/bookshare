@@ -4,8 +4,6 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
-
 
 @using (Html.BeginForm())
 {
@@ -14,7 +12,7 @@
         <div class="row">
             <div class="col-md-6 col-md-offset-3 container-login">
                 <div class="form-horizontal">
-                    <h4>AutorViewModel</h4>
+                    <h4>Novo Autor</h4>
                     <hr />
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     <div class="form-group">

@@ -1,31 +1,31 @@
 ﻿@model BookShare.MVC.Models.LivroViewModel
 
-@{
-    ViewBag.Title = "Editar Livro";
-}
 @section styles{
     <style>
         textarea {
-        width: 100%;
-        resize: none;
-        height: 7em;
-        }
-        .container-fluid {
-            margin-top: 20px;
+            width: 100%;
+            resize: none;
+            height: 7em;
         }
     </style>
+
 }
 
-@using (Html.BeginForm("Create", "Livros", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@{
+    ViewBag.Title = "Criar";
+}
+
+@using (Html.BeginForm("Edit", "Livros", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.LivroId)
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-8 col-md-offset-2 container-login">
-
                 <div class="form-horizontal">
-                    <h4>@ViewBag.Title</h4>
+                    <h2>Novo livro</h2>
                     <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     <div class="form-group">
                         <div class="col-md-6">
                             @Html.EditorFor(model => model.Titulo, new { htmlAttributes = new { @class = "form-control", @placeholder = "Título do Livro" } })
@@ -70,7 +70,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-md-12">
-                            <input type="submit" value="Create" class="btn btn-primary col-md-5" />
+                            <input type="submit" value="Salvar" class="btn btn-primary col-md-5" />
                             <a href='@Url.Action("Index", "Livros")' class="btn btn-danger col-md-5 col-md-offset-2">Cancelar</a>
 
                         </div>
@@ -80,6 +80,10 @@
         </div>
     </div>
 }
+
+<div>
+</div>
+
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

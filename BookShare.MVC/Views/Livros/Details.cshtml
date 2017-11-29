@@ -4,72 +4,101 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+@section styles{
+    <style>
+       
+        article, dt{
+            margin-top: 5px;
+        }
 
-<div>
-    <h4>LivroViewModel</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Titulo)
-        </dt>
+        .img-card{
+            padding: 0;
+        }
+        .btn{
+            margin-top: 2em;
+        }
+    </style>
+    }
 
-        <dd>
-            @Html.DisplayFor(model => model.Titulo)
-        </dd>
+    <div class="container-fluid container-details">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>@Html.DisplayFor(model => model.Titulo)</h2>
+            </div>
+            <div class="col-md-6">
+                <img src="/@Html.DisplayFor(model => model.Foto)" border="0" class="img-card col-md-12" />
+            </div>
+            <div class="col-md-6">
+                <article>
+                    <dl>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Titulo)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Sinopse)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Titulo)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Sinopse)
-        </dd>
+                        <p>
+                            @Html.DisplayNameFor(model => model.Sinopse)
+                        </p>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Isbn)
-        </dt>
+                        <p>
+                            @Html.DisplayFor(model => model.Sinopse)
+                        </p>
 
-        <dd>
-            @Html.DisplayFor(model => model.Isbn)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Isbn)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.AnoLancamento)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Isbn)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.AnoLancamento)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.AnoLancamento)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.AutorId)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.AnoLancamento)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.AutorId)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.AutorId)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CategoriaId)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Autor.Nome)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.CategoriaId)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.CategoriaId)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.EditoraId)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Categoria.Nome)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.EditoraId)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Editora)
+                        </dt>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.LivroId }) |
-    @Html.ActionLink("Delete", "Delete", new { id = Model.LivroId }) | 
-    @Html.ActionLink("Back to List", "Index")
-</p>
+                        <dd>
+                            @Html.DisplayFor(model => model.Editora.Nome)
+                        </dd>
+
+                    </dl>
+                </article>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <p>
+
+                    <a href="/Livros/Edit/@Model.LivroId" class="btn btn-primary">Editar</a>
+                    <a href="/Livros/Delete/@Model.LivroId" class="btn btn-danger">Remover</a>
+                    <a href='@Url.Action("Index", "Livros")' class="btn btn-default">Voltar</a>
+                </p>
+            </div>
+        </div>
+    </div>

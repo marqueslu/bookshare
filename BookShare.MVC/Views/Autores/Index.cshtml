@@ -4,30 +4,36 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nome)
-        </th>
-        <th></th>
-    </tr>
+<div class="container-fluid container-details">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Autores</h2>
+            <p>
+                <a href='@Url.Action("Create", "Autores")' class="btn btn-default">Novo Autor</a>
+            </p>
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nome)
+                    </th>
+                    <th></th>
+                </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.AutorId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.AutorId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.AutorId })
-        </td>
-    </tr>
-}
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <a href="/Autores/Details/@item.AutorId">@Html.DisplayFor(modelItem => item.Nome)</a>
+                        </td>
+                        <td>
+                            <a href="/Autores/Edit/@item.AutorId" class="btn btn-primary">Editar</a>
+                            <a href="/Autores/Delete/@item.AutorId" class="btn btn-danger">Excluir</a>
+                        </td>
+                    </tr>
+                }
 
-</table>
+            </table>
+        </div>
+    </div>
+</div>

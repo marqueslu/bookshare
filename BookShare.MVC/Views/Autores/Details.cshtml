@@ -3,24 +3,41 @@
 @{
     ViewBag.Title = "Details";
 }
+@section styles{
+    <style>
+        .btn {
+            margin-top: 2em;
+        }
+    </style>
+}
 
-<h2>Details</h2>
+<div class="container-fluid container-details">
+    <div class="row">
+        <div class="col-md-12">
+            <div>
+                <h4>Informações</h4>
 
-<div>
-    <h4>AutorViewModel</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
+                <hr />
+                <article>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Nome)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.Nome)
+                    </dd>
 
-    </dl>
+                </article>
+            </div>
+            <p>
+                <a href="/Autores/Edit/@Model.AutorId" class="btn btn-primary">Editar</a>
+                <a href="/Autores/Delete/@Model.AutorId" class="btn btn-danger">Excluir</a>
+                <a href='@Url.Action("Index", "Autores")' class="btn btn-default">Voltar</a>
+
+                @*@Html.ActionLink("Edit", "Edit", new { id = Model.AutorId }) |
+                    @Html.ActionLink("Back to List", "Index")*@
+            </p>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.AutorId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
