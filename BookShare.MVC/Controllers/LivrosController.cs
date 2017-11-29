@@ -62,8 +62,8 @@ namespace BookShare.MVC.Controllers
                     {
                         String[] strName = file.FileName.Split('.');
                         String strExt = strName[strName.Count() - 1];
-                        string pathSave = String.Format("{0}{1}.{2}", Server.MapPath("../Content/Imagens/"), livro.LivroId, strExt);
-                        String pathBase = String.Format("../Content/Imagens/{0}.{1}", livro.LivroId, strExt);
+                        string pathSave = String.Format("{0}{1}.{2}", Server.MapPath("../Content/imagens/"), livro.LivroId, strExt);
+                        String pathBase = String.Format("/Content/imagens/{0}.{1}", livro.LivroId, strExt);
                         file.SaveAs(pathSave);
                         livroDomain.Foto = pathBase;
                         _livroApp.Add(livroDomain);
@@ -96,7 +96,7 @@ namespace BookShare.MVC.Controllers
         // POST: Livros/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(LivroViewModel livro, HttpPostedFile file)
+        public ActionResult Edit(LivroViewModel livro, HttpPostedFileBase file)
         {
             try
             {
@@ -112,16 +112,14 @@ namespace BookShare.MVC.Controllers
                                 System.IO.File.Delete(Server.MapPath(livro.Foto));
                             }
                         }
-
                         String[] strName = file.FileName.Split('.');
                         String strExt = strName[strName.Count() - 1];
-                        string pathSave = String.Format("{0}{1}.{2}", Server.MapPath("../Content/Imagens/"), livro.LivroId, strExt);
-                        String pathBase = String.Format("../Content/Imagens/{0}.{1}", livro.LivroId, strExt);
+                        string pathSave = String.Format("{0}{1}.{2}", Server.MapPath("~/Content/imagens/"), livro.LivroId, strExt);
+                        String pathBase = String.Format("/Content/imagens/{0}.{1}", livro.LivroId, strExt);
                         file.SaveAs(pathSave);
+
                         livroDomain.Foto = pathBase;
                         _livroApp.Update(livroDomain);
-
-
                     }
 
                     return RedirectToAction("Index");

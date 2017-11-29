@@ -25,7 +25,8 @@
                 {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Nome)
+                            <a href="/Editoras/Details/@item.EditoraId">@Html.DisplayFor(modelItem => item.Nome)</a>
+
                         </td>
                         <td>
                             <a href="/Editoras/Edit/@item.EditoraId" class="btn btn-primary">Editar</a>
